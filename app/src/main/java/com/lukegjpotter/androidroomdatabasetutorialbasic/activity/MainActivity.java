@@ -1,24 +1,24 @@
 package com.lukegjpotter.androidroomdatabasetutorialbasic.activity;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import com.lukegjpotter.androidroomdatabasetutorialbasic.R;
+import com.lukegjpotter.androidroomdatabasetutorialbasic.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
+
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        setSupportActionBar(binding.toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener((view) ->
+        binding.fab.setOnClickListener((view) ->
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show());
     }
