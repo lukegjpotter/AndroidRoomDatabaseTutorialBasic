@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.lukegjpotter.androidroomdatabasetutorialbasic.R;
 import com.lukegjpotter.androidroomdatabasetutorialbasic.databinding.FragmentMainBinding;
 import com.lukegjpotter.androidroomdatabasetutorialbasic.recyclerview.MainActivityFragmentRecyclerViewAdapter;
-import com.lukegjpotter.androidroomdatabasetutorialbasic.viewmodel.DummyDataViewModel;
+import com.lukegjpotter.androidroomdatabasetutorialbasic.viewmodel.BlogPostsViewModel;
 
 import java.util.ArrayList;
 
@@ -33,9 +33,9 @@ public class MainActivityFragment extends Fragment {
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.recyclerView.setAdapter(recyclerViewAdapter);
 
-        DummyDataViewModel viewModel = ViewModelProviders.of(this).get(DummyDataViewModel.class);
+        BlogPostsViewModel viewModel = ViewModelProviders.of(this).get(BlogPostsViewModel.class);
 
-        viewModel.getBlogPosts().observe(MainActivityFragment.this, recyclerViewAdapter::addBlogPosts);
+        viewModel.getBlogPosts().observe(MainActivityFragment.this, recyclerViewAdapter::setBlogPosts);
 
         return binding.getRoot();
     }

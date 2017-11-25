@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.lukegjpotter.androidroomdatabasetutorialbasic.databinding.RecyclerItemBinding;
+import com.lukegjpotter.androidroomdatabasetutorialbasic.entity.BlogPost;
 
 import java.util.List;
 
@@ -13,9 +14,9 @@ import java.util.List;
  */
 public class MainActivityFragmentRecyclerViewAdapter extends RecyclerView.Adapter<MainActivityFragmentRecyclerViewAdapter.MainActivityFragmentRecyclerViewHolder> {
 
-    private List<String> blogPosts;
+    private List<BlogPost> blogPosts;
 
-    public MainActivityFragmentRecyclerViewAdapter(List<String> blogPosts) {
+    public MainActivityFragmentRecyclerViewAdapter(List<BlogPost> blogPosts) {
         this.blogPosts = blogPosts;
     }
 
@@ -29,8 +30,8 @@ public class MainActivityFragmentRecyclerViewAdapter extends RecyclerView.Adapte
 
     @Override
     public void onBindViewHolder(MainActivityFragmentRecyclerViewHolder holder, int position) {
-        String blogPost = blogPosts.get(position);
-        holder.bind(blogPost);
+        String blogPostTitle = blogPosts.get(position).getTitle();
+        holder.bind(blogPostTitle);
     }
 
     @Override
@@ -38,7 +39,7 @@ public class MainActivityFragmentRecyclerViewAdapter extends RecyclerView.Adapte
         return blogPosts.size();
     }
 
-    public void addBlogPosts(List<String> blogPosts) {
+    public void setBlogPosts(List<BlogPost> blogPosts) {
         this.blogPosts = blogPosts;
         notifyDataSetChanged();
     }
@@ -52,8 +53,8 @@ public class MainActivityFragmentRecyclerViewAdapter extends RecyclerView.Adapte
             this.binding = binding;
         }
 
-        void bind(String blogPost) {
-            binding.blogPostTextView.setText(blogPost);
+        void bind(String blogPostTitle) {
+            binding.blogPostTextView.setText(blogPostTitle);
             binding.executePendingBindings();
         }
     }
