@@ -2,4 +2,7 @@
     <string name="app_name">Android Room Database Tutorial Basic</string>
     <string name="action_settings">Settings</string>
     <string name="main_activity_title">Blog Posts</string>
+    <string name="title_activity_add_blog_post">Add Blog Post</string>
+    <string name="blog_post_hint">Blog Post Title</string>
+    <string name="add_blog_post_button_text">Add Blog Post</string>
 </resources>
